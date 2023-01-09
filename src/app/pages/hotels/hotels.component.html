@@ -1,0 +1,70 @@
+
+
+<main id="main" class="main">
+  <!-- <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div *ngFor="let hotel of hotels" class="col">
+      <div class="card h-100">
+        <img src="https://thumbs.dreamstime.com/b/hotel-10732347.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{hotel.hotelName}}</h5>
+          <p >{{hotel.city}}</p>
+          <h6 class="card-text">A luxurious hotel offering comfortable rooms and top-notch amenities.</h6>
+        </div>
+      </div>
+    </div> -->
+   <h3>List of hotels </h3>
+    <div class="table-responsive">
+      <table class="table align-middle mb-0 bg-white ">
+        <thead class="bg-light">
+          <tr>
+            <th>Name</th>
+            <th>Country</th>
+            <th>City</th>
+            <th>Status</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let hotel of hotels" >
+            <td>
+              <div class="d-flex align-items-center">
+                <img
+                    src="https://thumbs.dreamstime.com/b/hotel-10732347.jpg"
+                    alt=""
+                    style="width: 45px; height: 45px"
+                    class="rounded "
+                    />
+                <div class="ms-3">
+                  <p class="fw-bold mb-1">{{hotel.hotelName}}</p>
+                </div>
+              </div>
+            </td>
+            <td>
+              <p class="fw-normal mb-1">{{hotel.country}}</p>
+         
+            </td>
+            <td>{{hotel.city}}</td>
+            <td *ngIf="hotel.status === 'ACTIVE'">
+              <span class="badge rounded-pill bg-success">ACTIVE</span>
+            </td>
+            <td *ngIf="hotel.status === 'DEACTIVATE'">
+              <span  class="badge rounded-pill bg-danger">DEACTIVATE</span>
+            </td>
+           
+            <td>
+              <button type="button" class="btn btn-link btn-sm btn-rounded">
+                Show
+              </button>
+            </td>
+          </tr>
+         
+        </tbody>
+      </table>
+    </div>
+
+
+ 
+  <!-- </div> -->
+ 
+ 
+    </main>
