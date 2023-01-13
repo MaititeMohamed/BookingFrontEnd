@@ -1,17 +1,6 @@
 
 
 <main id="main" class="main">
-  <!-- <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div *ngFor="let hotel of hotels" class="col">
-      <div class="card h-100">
-        <img src="https://thumbs.dreamstime.com/b/hotel-10732347.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{hotel.hotelName}}</h5>
-          <p >{{hotel.city}}</p>
-          <h6 class="card-text">A luxurious hotel offering comfortable rooms and top-notch amenities.</h6>
-        </div>
-      </div>
-    </div> -->
    <h3>List of hotels </h3>
     <div class="table-responsive">
       <table class="table align-middle mb-0 bg-white ">
@@ -52,9 +41,9 @@
             </td>
            
             <td>
-              <button type="button" class="btn btn-link btn-sm btn-rounded">
+              <a type="button" routerLink="/hoteldetails/{{hotel.id}}"  class="btn btn-link btn-sm btn-rounded">
                 Show
-              </button>
+              </a>
             </td>
           </tr>
          

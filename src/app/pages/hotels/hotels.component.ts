@@ -17,6 +17,7 @@ export class HotelsComponent implements OnInit {
   ngOnInit(): void {
     this.getAllHotels();
   }
+  
   getAllHotels() {
     this.hotelService.getAllHotels().subscribe({
       next: (result) => {

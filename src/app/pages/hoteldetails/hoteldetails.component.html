@@ -1,0 +1,107 @@
+<main id="main" class="main">
+
+    <div class="card" >
+        <div class="card-body pt-3">
+          <!-- Bordered Tabs -->
+          <ul class="nav nav-tabs nav-tabs-bordered">
+
+            <li class="nav-item">
+              <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#hotel-overview">Overview</button>
+            </li>
+
+            <li class="nav-item">
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hotel-manager">Manager</button>
+            </li>
+
+            
+
+          </ul>
+          <div class="tab-content pt-2">
+
+            <!-- hotel overview -->
+            <div class="tab-pane fade show active hotel-overview"  id="hotel-overview">
+              <h5 class="card-title">description</h5>
+              <p class="small fst-italic">Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</p>
+
+              <h5 class="card-title">Hotel Details</h5>
+
+              <div class="row">
+                <div class="col-lg-3 col-md-4 label ">HotelName </div>
+                <div class="col-lg-9 col-md-8">{{hotel.hotelName}}</div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-3 col-md-4 label">Contry </div>
+                <div class="col-lg-9 col-md-8">{{hotel.country}}</div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-3 col-md-4 label">City</div>
+                <div class="col-lg-9 col-md-8">{{hotel.city}}</div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-3 col-md-4 label">Address</div>
+                <div class="col-lg-9 col-md-8">{{hotel.address}}</div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-3 col-md-4 label">Status</div>
+                <div class="col-lg-9 col-md-8">{{hotel.status}}</div>
+              </div>
+
+    
+            </div>
+
+            <!-- Manager -->
+            <div class="tab-pane fade hotel-manager pt-3" id="hotel-manager">
+                <h5 class="card-title">Manager Details</h5>
+  
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label ">FirstName </div>
+                  <div class="col-lg-9 col-md-8">{{ hotel.manager.firstName }}</div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">LastName </div>
+                  <div class="col-lg-9 col-md-8">{{ hotel.manager.lastName }}</div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">Email</div>
+                  <div class="col-lg-9 col-md-8">{{ hotel.manager.email }}</div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">Status</div>
+                  <div class="col-lg-9 col-md-8">{{ hotel.manager.status }}</div>
+                </div>
+  
+               
+  
+
+            </div>
+
+         
+          </div><!-- End Bordered Tabs -->
+
+        </div>
+      </div>
+
+
+
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div *ngFor="let room of rooms"  class="col">
+          <div class="card h-100">
+            <img src="data:image/jpeg;base64,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" class="card-img-top" alt="">
+            <div class="card-body">
+              <h5 class="card-title">Room Number : {{room.roomNumber}}</h5>
+              <small>Room price : {{room.price}}</small>
+              <p>Number of Beds : {{room.numberBeds}}</p>
+              <p class="card-text">All our guestrooms are elegantly furnished with handmade furniture include luxury en-suite facilities with complimentary amenities pack, flat screen LCD TV.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+</main>

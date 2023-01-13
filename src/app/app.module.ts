@@ -9,6 +9,9 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import {HttpClientModule} from '@angular/common/http';
 import { HotelsComponent } from './pages/hotels/hotels.component';
+import { HoteldetailsComponent } from './pages/hoteldetails/hoteldetails.component';
+import { ClientsComponent } from './pages/clients/clients.component';
+import { ManagersComponent } from './pages/managers/managers.component';
 
 @NgModule({
 declarations:[
@@ -17,7 +20,10 @@ declarations:[
     FooterComponent,
     SidebarComponent,
     DashboardComponent,
-    HotelsComponent
+    HotelsComponent,
+    HoteldetailsComponent,
+    ClientsComponent,
+    ManagersComponent
 ],
 
 imports:[
