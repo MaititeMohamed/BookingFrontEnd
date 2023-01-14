@@ -45,7 +45,7 @@
               <button type="button" class="btn btn-link btn-sm btn-rounded">
                 <i class="fa fa-edit" aria-hidden="true"></i>
               </button>
-              <button type="button" class="btn btn-link btn-sm btn-rounded">
+              <button type="button" class="btn btn-link btn-sm btn-rounded" data-bs-toggle="modal" data-bs-target="#deleteClient" >
                 <i class="fa fa-trash" aria-hidden="true"></i>
               </button>
             </td>
@@ -92,7 +92,6 @@
          <div class="modal-footer">
             <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             <button [disabled]="addForm.invalid"    type="submit" class="btn btn-primary" >Save changes</button>
-            
          </div>
          </form>
         </div>
@@ -100,5 +99,27 @@
         </div>
       </div>
       <!-- end modal client  -->
+
+      <!-- Delete Modal -->
+      <div class="modal fade" id="deleteClient" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="deleteModelLabel">Delete Client</h5>
+                <button type="button" class="close btn btn-rounded mb-4" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                 <p>Are you sure you want to delete client ?</p>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button> -->
+                    <button (click)="deleteClient(deleteclient.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <!-- Delete Modal -->
 </main>
 

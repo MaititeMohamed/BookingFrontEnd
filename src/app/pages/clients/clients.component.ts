@@ -10,7 +10,7 @@ import { ClientService } from 'src/app/service/clientService';
   styleUrls: ['./clients.component.css']
 })
 export class ClientsComponent implements OnInit {
-
+   deleteclient!: Client;
   clients :Client[]=[];
   constructor( private clientService: ClientService) { }
 
@@ -18,7 +18,7 @@ export class ClientsComponent implements OnInit {
     this.getAllClients();
   }
 
-  getAllClients(){
+  public getAllClients(){
     this.clientService.getAllClients().subscribe({
       next: (result) => {
         console.log(result);
@@ -29,7 +29,7 @@ export class ClientsComponent implements OnInit {
     });
   }
 
-  addClient(addForm: NgForm):void{
+  public addClient(addForm: NgForm):void{
     this.clientService.addClient(addForm.value).subscribe(
       (response: Client) => {
         console.log(response);
@@ -41,5 +41,18 @@ export class ClientsComponent implements OnInit {
         addForm.reset();
       }
     );
-    }
+  }
+  
+  public deleteClient(id: number): void {
+    this.clientService.deleteClient(id).subscribe(
+      (response: void) => {
+        console.log(response);
+        this.getAllClients();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+
 }

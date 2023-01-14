@@ -14,13 +14,17 @@ import { Observable } from "rxjs";
     constructor(private http: HttpClient) { }
 
 
-    getAllClients(): Observable<any> {
+   public  getAllClients(): Observable<any> {
         return this.http.get("http://localhost:8080/Booking/Admin/getAllClient");
       }
 
 
-     addClient(client:Client):Observable<Client> {
+      public  addClient(client:Client):Observable<Client> {
       return this.http.post<Client>("http://localhost:8080/Booking/Admin/addClient",client);
      }
+
+     public deleteClient(id: number): Observable<any> {
+      return this.http.delete<void>("http://localhost:8080/Booking/Admin/deleteClientById/"+id);
+    }
 
   }
