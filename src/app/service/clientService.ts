@@ -23,6 +23,11 @@ import { Observable } from "rxjs";
       return this.http.post<Client>("http://localhost:8080/Booking/Admin/addClient",client);
      }
 
+     public updateClient(client: Client):Observable<Client> {
+      return this.http.put<Client>("http://localhost:8080/Booking/Admin/updateClient",client);
+    }
+  
+
      public deleteClient(id: number): Observable<any> {
       return this.http.delete<void>("http://localhost:8080/Booking/Admin/deleteClientById/"+id);
     }
