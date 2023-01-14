@@ -1,5 +1,86 @@
 <main id="main" class="main">
 
+    <div class="d-flex  justify-content-between">
+        <h3>List of manager </h3>
+        <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addmanager">
+            Add Mangaer
+           </button>
+    </div>
+   
+    <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+          <tr>
+            <th>firstName</th>
+            <th>lastName</th>
+            <th>email</th>
+            <th>status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let manager of managers">
+            <td>
+              <div class="d-flex align-items-center">
+                <img
+                    src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+                    alt=""
+                    style="width: 45px; height: 45px"
+                    class="rounded-circle"
+                    />
+                <div class="ms-3">
+                  <p class="fw-bold mb-1">{{manager.firstName}}</p>
+                
+                </div>
+              </div>
+            </td>
+            <td>
+              <p class="fw-normal mb-1">{{manager.lastName}}</p>
+            </td>
+            <td>
+              <span class="fw-normal mb-1">{{manager.email}}</span>
+            </td>
+            <td>
+                <span class="fw-normal mb-1">{{manager.status}}</span>
+              </td>
+            <td>
+              <button type="button" class="btn btn-link btn-sm btn-rounded">
+                <i class="fa fa-edit" aria-hidden="true"></i>
+              </button>
+              <button type="button" class="btn btn-link btn-sm btn-rounded">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+            </td>
+          </tr>
+         
+          
+        </tbody>
+      </table>
 
-<p>managers works!</p>
+
+      <!-- modal add manager  -->
+      <div class="modal" id="addmanager">
+        <div class="modal-dialog">
+          <div class="modal-content">
+      
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Modal Heading</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+      
+            <!-- Modal body -->
+            <div class="modal-body">
+              Modal body..
+            </div>
+      
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+      
+          </div>
+        </div>
+      </div>
+      <!-- end modal manager  -->
 </main>
+
