@@ -22,7 +22,7 @@
             <td>
               <div class="d-flex align-items-center">
                 <img
-                    src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+                    src="assets/img/logo.png"
                     alt=""
                     style="width: 45px; height: 45px"
                     class="rounded-circle"
@@ -44,10 +44,10 @@
               </td>
             <td>
               <button type="button" class="btn btn-link btn-sm btn-rounded">
-                <i class="fa fa-edit" aria-hidden="true"></i>
+                <i (click)="onOpenModal(manager,'edit')" class="fa fa-edit" aria-hidden="true"></i>
               </button>
               <button type="button" class="btn btn-link btn-sm btn-rounded">
-                <i class="fa fa-trash" aria-hidden="true"></i>
+                <i (click)="onOpenModal(manager,'delete')" class="fa fa-trash" aria-hidden="true"></i>
               </button>
             </td>
           </tr>
@@ -57,30 +57,119 @@
       </table>
 
 
-      <!-- modal add manager  -->
-      <div class="modal" id="addmanager">
-        <div class="modal-dialog">
-          <div class="modal-content">
-      
-            <!-- Modal Header -->
-            <div class="modal-header">
-              <h4 class="modal-title">Modal Heading</h4>
-              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+       <!-- modal add manager  -->
+        <div class="modal" id="addmanager">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Add Manager</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+
+
+          <form #addForm="ngForm" (ngSubmit)="addManager(addForm)">
+            <div class="form-group">
+              <label for="firstName">firstName</label>
+              <input type="text" ngModel name="firstName" class="form-control" id="firstName" placeholder="firstName"
+                required>
             </div>
-      
-            <!-- Modal body -->
-            <div class="modal-body">
-              Modal body..
+            <div class="form-group">
+              <label for="lastName">lastName</label>
+              <input type="text" ngModel name="lastName" class="form-control" id="lastName" placeholder="lastName"
+                required>
             </div>
-      
-            <!-- Modal footer -->
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" ngModel name="email" class="form-control" id="email" placeholder="Email" required>
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="password">password</label>
+              <input type="password" ngModel name="password" class="form-control" id="password" placeholder="password"
+                required>
+            </div>
+
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Save changes</button>
             </div>
+          </form>
+        </div>
+      </div>
+    </div>
+       </div>
+       <!-- end modal manager  -->
+
+
+        <!-- modal update Manager  -->
+     <div class="modal" id="updateManager">
+     <div class="modal-dialog">
+      <div class="modal-content">
+
       
+        <div class="modal-header">
+          <h4 class="modal-title">update Manager</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+    
+        <div class="modal-body">
+          <form #editForm="ngForm">
+            <div class="form-group">
+              <label for="firstName">firstName</label>
+              <input type="text" ngModel="{{editManager?.firstName}}" name="firstName" class="form-control" id="firstName" aria-describedby="emailHelp" placeholder="firstName">
+            </div>
+            <div class="form-group">
+              <label for="lastName">lastName</label>
+              <input type="text" ngModel="{{editManager?.lastName}}" name="lastName" class="form-control" id="lastName" placeholder="lastName"
+                required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" ngModel="{{editManager?.email}}" name="email" class="form-control" id="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" ngModel="{{editManager?.password}}" name="password" class="form-control" id="password" placeholder="password"
+                required>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button [disabled]="editForm.invalid" (click)="updateManager(editForm.value)" type="submit"
+                class="btn btn-primary">Save changes</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end update Manager  -->
+  <!-- Delete Modal -->
+  <div class="modal fade" id="deleteManager" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModelLabel">Delete Manager</h5>
+          <button type="button" class="close btn btn-rounded mb-4" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete Manager  {{deleteManager?.firstName}} ?</p>
+          <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button> -->
+            <button (click)="deleteManagerByid(deleteManager.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
           </div>
         </div>
       </div>
-      <!-- end modal manager  -->
+    </div>
+  </div>
+  <!-- Delete Modal -->
 </main>
 

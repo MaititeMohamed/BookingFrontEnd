@@ -1,9 +1,9 @@
 <main id="main" class="main">
 
   <div class="d-flex  justify-content-between">
-    <h3>List of manager </h3>
+    <h3>List of Client </h3>
     <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addclient">
-      Add Mangaer
+      Add Client
     </button>
   </div>
   <table class="table align-middle mb-0 bg-white">
@@ -99,6 +99,7 @@
     </div>
   </div>
   <!-- end modal client  -->
+
   <!-- modal update client  -->
   <div class="modal" id="updateClient">
     <div class="modal-dialog">
@@ -121,9 +122,15 @@
               <input type="text" ngModel="{{editClient?.lastName}}" name="lastName" class="form-control" id="lastName" placeholder="lastName"
                 required>
             </div>
+            
             <div class="form-group">
               <label for="email">Email Address</label>
               <input type="email" ngModel="{{editClient?.email}}" name="email" class="form-control" id="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" ngModel="{{editClient?.password}}" name="password" class="form-control" id="password" placeholder="password"
+                required>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

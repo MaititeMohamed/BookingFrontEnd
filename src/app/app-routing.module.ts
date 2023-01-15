@@ -6,8 +6,11 @@ import { HotelsComponent } from './pages/hotels/hotels.component';
 import { HoteldetailsComponent } from './pages/hoteldetails/hoteldetails.component';
 import { ClientsComponent } from './pages/clients/clients.component';
 import { ManagersComponent } from './pages/managers/managers.component';
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent},
   {path:"navbar",component:NavbarComponent},
   {path:"dashboard",component:DashboardComponent},
   {path:"hotels",component:HotelsComponent},
