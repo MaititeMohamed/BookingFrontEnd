@@ -3,9 +3,9 @@
 <main id="main" class="main">
   <div class="d-flex  justify-content-between">
     <h3>List of hotels </h3>
-    <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addhotel">
+    <!-- <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addhotel">
       Add hotel
-    </button>
+    </button> -->
   </div>
     <div class="table-responsive">
       <table class="table align-middle mb-0 bg-white ">
@@ -15,6 +15,7 @@
             <th>Country</th>
             <th>City</th>
             <th>Status</th>
+            <th>Actions</th>
             <th>Details</th>
           </tr>
         </thead>
@@ -44,7 +45,15 @@
             <td *ngIf="hotel.status === 'DEACTIVATE'">
               <span  class="badge rounded-pill bg-danger">DEACTIVATE</span>
             </td>
-           
+            <td>
+              <a class="btn btn-link btn-sm btn-rounded">
+                <i (click)="onOpenModal(hotel,'activehotel')" class="fa fa-edit" aria-hidden="true"></i>
+              </a>
+              <a class="btn btn-link btn-sm btn-rounded">
+                <i (click)="onOpenModal(hotel,'delete')" data-placement="top" data-original-title="Delete"
+                   class="fa fa-trash" aria-hidden="true"></i>
+              </a>
+            </td>
             <td>
               <a type="button" routerLink="/hoteldetails/{{hotel.id}}"  class="btn btn-link btn-sm btn-rounded">
                 Show
@@ -60,17 +69,17 @@
 
 
     <!-- modal add client  -->
-  <div class="modal" id="addhotel">
+  <!-- <div class="modal" id="addhotel">
     <div class="modal-dialog">
       <div class="modal-content">
 
-        <!-- Modal Header -->
+        
         <div class="modal-header">
           <h4 class="modal-title">Add Client</h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
 
-        <!-- Modal body -->
+      
         <div class="modal-body">
 
 
@@ -106,8 +115,52 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- end modal client  -->
+   <!-- Delete Modal -->
+   <div class="modal fade" id="deleteHotel" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel"
+   aria-hidden="true">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="deleteModelLabel">Delete Client</h5>
+         <button type="button" class="close btn btn-rounded mb-4" data-bs-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body">
+         <p>Are you sure you want to delete Hotel  {{deleteHotel?.hotelName}} ?</p>
+         <div class="modal-footer">
+           <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button> -->
+           <button (click)="deleteHotelById(deleteHotel.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+ <!-- Delete Modal -->
  
- 
+
+    <!-- Active Modal -->
+    <div class="modal fade" id="activeHotel" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModelLabel">Active hotel</h5>
+          <button type="button" class="close btn btn-rounded mb-4" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to Active  Hotel  {{activetHotel?.hotelName}} ?</p>
+          <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button> -->
+            <button (click)="activeHotelById(activetHotel.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Active Modal -->
     </main>

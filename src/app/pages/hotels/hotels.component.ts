@@ -14,6 +14,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class HotelsComponent implements OnInit {
 
  hotels: Hotel[] = [];
+  // editHotel!: Hotel;
+ deleteHotel!: Hotel
+ activetHotel!: Hotel;
 
   constructor(private hotelService: HotelService, private router: Router) { }
 
@@ -33,31 +36,31 @@ export class HotelsComponent implements OnInit {
   }
 
 
-  public addHotel(addForm: NgForm):void{
-    this.hotelService.addHotel(addForm.value).subscribe(
-      (response: Hotel) => {
-        console.log(response);
-        this.getAllHotels();
-        addForm.reset();
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-        addForm.reset();
-      }
-    );
-  }
+  // public addHotel(addForm: NgForm):void{
+  //   this.hotelService.addHotel(addForm.value).subscribe(
+  //     (response: Hotel) => {
+  //       console.log(response);
+  //       this.getAllHotels();
+  //       addForm.reset();
+  //     },
+  //     (error: HttpErrorResponse) => {
+  //       alert(error.message);
+  //       addForm.reset();
+  //     }
+  //   );
+  // }
   
-  public UpdateHotel(hotel: Hotel): void {
-    this.hotelService.updateHotel(hotel).subscribe(
-      (response: Hotel) => {
-        console.log(response);
-        this.getAllHotels();
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
-  }
+  // public UpdateHotel(hotel: Hotel): void {
+  //   this.hotelService.updateHotel(hotel).subscribe(
+  //     (response: Hotel) => {
+  //       console.log(response);
+  //       this.getAllHotels();
+  //     },
+  //     (error: HttpErrorResponse) => {
+  //       alert(error.message);
+  //     }
+  //   );
+  // }
 
   public deleteHotelById(id: number): void {
     this.hotelService.deleteHotel(id).subscribe(
@@ -69,6 +72,35 @@ export class HotelsComponent implements OnInit {
         alert(error.message);
       }
     );
+  }
+
+  public activeHotelById(id: number): void {
+    this.hotelService.activeHotel(id).subscribe(
+      (response: void) => {
+        console.log(response);
+        this.getAllHotels();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+  public onOpenModal(hotel: Hotel, mode: string): void {
+    const container = document.getElementById('main');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.style.display = 'none';
+    button.setAttribute('data-bs-toggle', 'modal');
+    if (mode === 'activehotel') {
+      this.activetHotel =hotel;
+      button.setAttribute('data-bs-target', '#activeHotel');
+    }
+    if (mode === 'delete') {
+      this.deleteHotel = hotel;
+      button.setAttribute('data-bs-target', '#deleteHotel');
+    }
+   container!.appendChild(button);
+    button.click();
   }
 
 
