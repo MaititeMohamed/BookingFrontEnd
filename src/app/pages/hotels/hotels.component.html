@@ -1,7 +1,12 @@
 
 
 <main id="main" class="main">
-   <h3>List of hotels </h3>
+  <div class="d-flex  justify-content-between">
+    <h3>List of hotels </h3>
+    <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addhotel">
+      Add hotel
+    </button>
+  </div>
     <div class="table-responsive">
       <table class="table align-middle mb-0 bg-white ">
         <thead class="bg-light">
@@ -52,8 +57,57 @@
     </div>
 
 
- 
-  <!-- </div> -->
+
+
+    <!-- modal add client  -->
+  <div class="modal" id="addhotel">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Add Client</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+
+
+          <form #addForm="ngForm" (ngSubmit)="addHotel(addForm)">
+            <div class="form-group">
+              <label for="hotelName">hotelName</label>
+              <input type="text" ngModel name="hotelName" class="form-control" id="hotelName" placeholder="hotelName"
+                required>
+            </div>
+            <div class="form-group">
+              <label for="address">address</label>
+              <input type="text" ngModel name="address" class="form-control" id="address" placeholder="address"
+                required>
+            </div>
+          
+            <div class="form-group">
+              <label for="country">country</label>
+              <input type="text" ngModel name="country" class="form-control" id="country" placeholder="country"
+                required>
+            </div>
+          
+            <div class="form-group">
+              <label for="city">city</label>
+              <input type="text" ngModel name="city" class="form-control" id="city" placeholder="city"
+                required>
+            </div>
+          
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end modal client  -->
  
  
     </main>

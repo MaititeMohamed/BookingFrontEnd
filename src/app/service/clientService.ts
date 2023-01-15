@@ -19,7 +19,7 @@ import { Observable } from "rxjs";
       }
 
 
-      public  addClient(client:Client):Observable<Client> {
+    public  addClient(client:Client):Observable<Client> {
       return this.http.post<Client>("http://localhost:8080/Booking/Admin/addClient",client);
      }
 
