@@ -7,6 +7,9 @@ import { HoteldetailsComponent } from './pages/hoteldetails/hoteldetails.compone
 import { ClientsComponent } from './pages/clients/clients.component';
 import { ManagersComponent } from './pages/managers/managers.component';
 import { HomeComponent } from './pages/home/home.component';
+import { RoomComponent } from './pages/room/room.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { RoomdetailsComponent } from './pages/roomdetails/roomdetails.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,9 +17,13 @@ const routes: Routes = [
   {path:"navbar",component:NavbarComponent},
   {path:"dashboard",component:DashboardComponent},
   {path:"hotels",component:HotelsComponent},
+  {path:"footer",component:FooterComponent},
   {path:"hoteldetails/:id",component:HoteldetailsComponent},
+  {path:"roomdetails/:id",component:RoomdetailsComponent},
   {path:"clients",component:ClientsComponent},
-  {path:"managers",component:ManagersComponent}
+  {path:"managers",component:ManagersComponent},
+  {path:"rooms",component:RoomComponent}
+  
 ];
 
 

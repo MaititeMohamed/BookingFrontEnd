@@ -13,6 +13,8 @@ import { HoteldetailsComponent } from './pages/hoteldetails/hoteldetails.compone
 import { ClientsComponent } from './pages/clients/clients.component';
 import { ManagersComponent } from './pages/managers/managers.component';
 import { HomeComponent } from './pages/home/home.component';
+import { RoomComponent } from './pages/room/room.component';
+import { RoomdetailsComponent } from './pages/roomdetails/roomdetails.component';
 
 @NgModule({
 declarations:[
@@ -25,7 +27,9 @@ declarations:[
     HoteldetailsComponent,
     ClientsComponent,
     ManagersComponent,
-    HomeComponent
+    HomeComponent,
+    RoomComponent,
+    RoomdetailsComponent
 ],
 
 imports:[

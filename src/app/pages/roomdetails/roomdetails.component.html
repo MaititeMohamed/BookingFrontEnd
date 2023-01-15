@@ -1,4 +1,3 @@
-
 <!-- start navabr  -->
 <nav class="navbar navbar-expand-lg bg-body-tertiary shadow p-3 mb-0 bg-body rounded shadow-lg"  style="background-color: #FFFFFF;">
     <div class="container-fluid">
@@ -26,61 +25,40 @@
     </div>
   </nav>
 <!-- End navbar  -->
-
-<!-- container  -->
 <div class="container-fluid vh-100 d-flex justify-content-center align-items-center" style="background-image: url(assets/img/room.jpg);background-repeat: no-repeat;background-size: 100%; background-size: cover;">
- <div>
-  <div class="pt-5">
-    <h1 class="text-white fw-bold">Welcome To Booking</h1>
-    <h3 class="text-white fw-bold mb-2">Your One-Stop Shop for Travel Reservations</h3>
-  </div>
-  
-  <form class="d-md-flex p-5 pt-3 opacity-10 rounded gap-3" style="background-color: #333; color: white;">
-      <div class="form-group">
-        <label class="form-label mt-2" for="form8Example3">City</label>
-        <input type="text" id="form8Example3" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label class="form-label mt-2" for="form8Example4">price</label>
-        <input type="tel" id="form8Example4" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label class="form-label mt-2" for="form8Example4">filter</label>
-        <button type="button" class="btn btn-success form-control">filter</button>
-      </div>
-  
-    </form>
-  </div>
 
+  
+  <form #addForm="ngForm" (ngSubmit)="reservation(addForm)" class="d-md-flex p-5 pt-3 opacity-10 rounded gap-3" style="background-color: #333; color: white;">
+      <div class="form-group">
+        <label class="form-label mt-2" for="form8Example3">Check-in</label>
+        <input type="date" ngModel name="startDate" id="form8Example3" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label class="form-label mt-2" for="form8Example4">Check-out</label>
+        <input type="date" ngModel name="endDate" id="form8Example4" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label class="form-label mt-2" for="form8Example4">Reservation</label>
+        <button type="submit"  class="btn btn-success form-control">Reservation</button>
+      </div>
+  
+</form>
 </div>
-
-
-<!-- End  container  -->
-<div class="container-fluid mt-5">
-  <div class="d-flex justify-content-center">
-    <h1>Rooms </h1>
-  </div>
-  
-  
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div *ngFor="let room of rooms" class="col">
-      <div  class="card h-100">
-        <img src="assets/img/droom.jpg" class="card-img-top" alt="droom">
-        <div class="card-body">
-          <h5 class="card-title">Room Type : {{room.roomType}}</h5>
-          <h5>Capacity : {{room.capacity}}</h5>
-          <p class="card-text">{{room.description}}</p>
-          <div class="d-flex justify-content-end align-items-md-end" >
-              <a  routerLink="/roomdetails/{{room.id}}"  class="btn btn-primary">
-                Reservations
-              </a>
-            
-           </div>
-        </div>
+<div class="container-fluid">
+<div class="card mt-2 mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="assets/img/room.jpg" class="img-fluid rounded-start h-100" alt="droom">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Room Type:  {{room.roomType}}</h5>
+        <h5>Room Capacity:  {{room.capacity}}</h5>
+        <h5>Room Price:  {{room.price}}</h5>
+        <p class="card-text">Room Description: {{room.description}} </p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
       </div>
     </div>
-    
-   
-   
   </div>
+</div>
 </div>
