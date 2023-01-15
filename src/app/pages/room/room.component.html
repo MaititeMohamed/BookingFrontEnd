@@ -1,0 +1,52 @@
+<main id="main" class="main">
+    <div class="d-flex  justify-content-between">
+        <h3>List of rooms </h3>
+        <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addclient">
+          Add Room
+        </button>
+      </div>
+      <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+          <tr>
+            <th>roomNumber</th>
+            <th>price</th>
+            <th>numberBeds</th>
+            <th>status</th>
+            <th>hotelName</th>
+            <th>manager</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let room of rooms">
+            <td>
+              <div class="d-flex align-items-center">
+                <!-- <img src="assets/img/logo.png" alt="" style="width: 45px; height: 45px"
+                  class="rounded-circle" /> -->
+                <div class="ms-3">
+                  <p class="fw-bold mb-1">{{room.roomNumber}}</p>
+    
+                </div>
+              </div>
+            </td>
+            <td>
+              <p class="fw-normal mb-1">{{room.price}}</p>
+            </td>
+            <td>
+              <span class="fw-normal mb-1">{{room.numberBeds}}</span>
+            </td>
+            <td>
+                <span class="fw-normal mb-1">{{room.roomStatus}}</span>
+            </td>
+            <td>
+              <span class="fw-normal mb-1">{{room.hotel.hotelName}}</span>
+            </td>
+            <td>
+                <span class="fw-normal mb-1">{{room.hotel.manager.firstName}}</span>
+            </td>
+          </tr>
+         
+    
+        </tbody>
+      </table>
+</main>
+
