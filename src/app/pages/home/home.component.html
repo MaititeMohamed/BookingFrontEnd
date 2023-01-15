@@ -57,10 +57,27 @@
 
 <!-- End  container  -->
 <div class="container-fluid mt-5">
-  <div class="card" style="width: 18rem;">
-    <img src="assets/img/droom.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  <div class="d-flex justify-content-center">
+    <h1>Rooms </h1>
+  </div>
+  
+  
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div *ngFor="let room of rooms" class="col">
+      <div  class="card h-100">
+        <img src="assets/img/droom.jpg" class="card-img-top" alt="droom">
+        <div class="card-body">
+          <h5 class="card-title">Room Type : {{room.roomType}}</h5>
+          <h5>Capacity : {{room.capacity}}</h5>
+          <p class="card-text">{{room.description}}</p>
+          <div class="d-flex justify-content-end align-items-md-end" >
+              <a href="#" class="btn btn-primary">Reservations</a>
+           </div>
+        </div>
+      </div>
     </div>
+    
+   
+   
   </div>
 </div>
