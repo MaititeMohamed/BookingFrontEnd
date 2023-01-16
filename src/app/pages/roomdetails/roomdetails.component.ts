@@ -1,10 +1,11 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Resevation } from 'src/app/model/reservation';
 import { Room } from 'src/app/model/roomModel';
 import { RoomService } from 'src/app/service/roomService';
+import { StorageService } from 'src/app/service/storageService';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -15,14 +16,21 @@ import Swal from 'sweetalert2';
 export class RoomdetailsComponent implements OnInit {
   id!: number;
   room!: Room;
+  islogged=false
   Reservation!: Resevation;
   constructor(private activatedRoute: ActivatedRoute,
-             private roomService:RoomService
+             private roomService:RoomService,
+             private storageService:StorageService, private router:Router
     ) { }
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params['id'];
      console.log( this.getRoomById(this.id));
+
+     if(this.storageService.isLoggedIn()){
+      this.islogged=true;
+     }
+
   }
 
 

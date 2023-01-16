@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Room } from 'src/app/model/roomModel';
 import { RoomService } from 'src/app/service/roomService';
+import { StorageService } from 'src/app/service/storageService';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +10,14 @@ import { RoomService } from 'src/app/service/roomService';
 })
 export class HomeComponent implements OnInit {
  rooms:Room[]=[];
-  constructor(private roomService:RoomService) { }
+  constructor(private roomService:RoomService,private storageService:StorageService) { }
+
+  statusLogin=false;
 
   ngOnInit(): void {
+     if(this.storageService.isLoggedIn()){
+      this.statusLogin=true;
+     }
     this.getAllRooms();
   }
 

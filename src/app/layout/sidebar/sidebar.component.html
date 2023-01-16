@@ -20,7 +20,7 @@
           <span><i class="fa fa-users" aria-hidden="true"></i> clients</span>
         </a>
       </li><!-- End Clients Nav -->
-      <li class="nav-item active">
+      <li *ngIf="isManage==false" class="nav-item active">
         <a class="nav-link "   routerLink="/managers">
           <span><i class="fa fa-user" aria-hidden="true"></i> managers</span>
         </a>

@@ -1,8 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Manager } from 'src/app/model/manager';
 import { ManagerService } from 'src/app/service/managerService';
+import { StorageService } from 'src/app/service/storageService';
 
 @Component({
   selector: 'app-managers',
@@ -15,10 +17,19 @@ managers:Manager[]=[];
   editManager!: Manager;
   deleteManager!: Manager;
 
-  constructor(private managerService:ManagerService) { }
+  constructor(private managerService:ManagerService,private storageService:StorageService, private router: Router) { }
 
   ngOnInit(): void {
-    this.getAllManagers();
+
+    if(this.storageService.isLoggedIn()){
+      if (!(this.storageService.getAuthority() =="Admin")){
+        this.router.navigate(["login"]);
+      }
+      this.getAllManagers();
+    }else{
+      this.router.navigate(["login"]);
+    }
+    
   }
 
   public getAllManagers(){

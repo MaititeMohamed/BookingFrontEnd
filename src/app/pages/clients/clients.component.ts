@@ -2,8 +2,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Client } from 'src/app/model/clientModel';
 import { ClientService } from 'src/app/service/clientService';
+import { StorageService } from 'src/app/service/storageService';
 
 @Component({
   selector: 'app-clients',
@@ -14,10 +16,19 @@ export class ClientsComponent implements OnInit {
    editClient!: Client;
   deleteClient!: Client;
   clients :Client[]=[];
-  constructor( private clientService: ClientService) { }
+  constructor( private clientService: ClientService,private storageService:StorageService, private router: Router) { }
 
   ngOnInit():void {
-    this.getAllClients();
+
+    if(this.storageService.isLoggedIn()){
+      if (!(this.storageService.getAuthority() =="Admin" ||this.storageService.getAuthority()=="Manager")){
+        this.router.navigate(["login"]);
+      }
+      this.getAllClients();
+    }else{
+      this.router.navigate(["login"]);
+    }
+   
   }
 
   public getAllClients(){

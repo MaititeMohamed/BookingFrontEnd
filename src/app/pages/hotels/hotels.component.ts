@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Manager } from 'src/app/model/manager';
 import { HttpErrorResponse } from '@angular/common/http';
+import { StorageService } from 'src/app/service/storageService';
 
 @Component({
   selector: 'app-hotel',
@@ -18,21 +19,31 @@ export class HotelsComponent implements OnInit {
  deleteHotel!: Hotel
  activetHotel!: Hotel;
 
-  constructor(private hotelService: HotelService, private router: Router) { }
-
+  constructor(private hotelService: HotelService, private storageService:StorageService, private router: Router) { }
+ 
   ngOnInit(): void {
-    this.getAllHotels();
+
+    if(this.storageService.isLoggedIn()){
+      if (!(this.storageService.getAuthority() =="Admin" || this.storageService.getAuthority() =="Manager")){
+        this.router.navigate(["login"]);
+      }
+      
+      this.getAllHotels();
+    }else{
+      this.router.navigate(["login"]);
+    }
+   
+    
   }
   
   getAllHotels() {
-    this.hotelService.getAllHotels().subscribe({
-      next: (result) => {
+    this.hotelService.getAllHotels().subscribe(
+       (result) => {
         console.log(result);
         this.hotels = result;
         console.log(this.hotels);
-      },
-      error: (e) => console.error(e)
-    });
+      }
+     );
   }
 
 

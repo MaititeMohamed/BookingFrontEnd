@@ -39,7 +39,8 @@
       </div>
       <div class="form-group">
         <label class="form-label mt-2" for="form8Example4">Reservation</label>
-        <button type="submit"  class="btn btn-success form-control">Reservation</button>
+        <button type="submit"  *ngIf="islogged==true" class="btn btn-success form-control">Reservation</button>
+        <a *ngIf="islogged==false" class="btn btn-success form-control">login</a>
       </div>
   
 </form>
