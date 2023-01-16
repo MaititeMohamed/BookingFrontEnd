@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Resevation } from 'src/app/model/reservation';
 import { Room } from 'src/app/model/roomModel';
 import { RoomService } from 'src/app/service/roomService';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-roomdetails',
@@ -34,13 +35,24 @@ export class RoomdetailsComponent implements OnInit {
       error: (e) => console.error(e)
     });
   }
+
+  startdate="12-23-5262"
+  
+  
   
   public reservation(addForm: NgForm):void{
     this.roomService.reservation(addForm.value).subscribe(
+      
       (response: Resevation) => {
+        console.log(addForm);
         console.log(response);
         addForm.reset();
-        alert("reservation");
+        Swal.fire(
+          'Resevation success',
+          'Start date '+ response.startDate + '<br>'+
+          'End date '+ response.endDate,
+          'success'
+        )
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
