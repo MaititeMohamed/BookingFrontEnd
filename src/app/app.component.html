@@ -1,5 +1,5 @@
 
-<div *ngIf="!(_router.url == '/login' || _router.url == '/register' || _router.url == '/' || _router.url == '/home' || _router.url=='/roomdetails/1')">
+<div *ngIf="!(_router.url == '/login' || _router.url == '/register' || _router.url == '/' || _router.url == '/home' || _router.url.indexOf('roomdetails')>=0)">
     <app-navbar></app-navbar>
     <app-sidebar></app-sidebar>
     

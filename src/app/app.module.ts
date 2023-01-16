@@ -15,6 +15,8 @@ import { ManagersComponent } from './pages/managers/managers.component';
 import { HomeComponent } from './pages/home/home.component';
 import { RoomComponent } from './pages/room/room.component';
 import { RoomdetailsComponent } from './pages/roomdetails/roomdetails.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 @NgModule({
 declarations:[
@@ -29,7 +31,9 @@ declarations:[
     ManagersComponent,
     HomeComponent,
     RoomComponent,
-    RoomdetailsComponent
+    RoomdetailsComponent,
+    LoginComponent,
+    RegisterComponent
 ],
 
 imports:[

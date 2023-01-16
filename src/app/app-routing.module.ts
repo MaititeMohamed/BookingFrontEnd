@@ -10,10 +10,14 @@ import { HomeComponent } from './pages/home/home.component';
 import { RoomComponent } from './pages/room/room.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { RoomdetailsComponent } from './pages/roomdetails/roomdetails.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent},
+  {path:'register',component:RegisterComponent},
+  {path:'login',component:LoginComponent},
   {path:"navbar",component:NavbarComponent},
   {path:"dashboard",component:DashboardComponent},
   {path:"hotels",component:HotelsComponent},

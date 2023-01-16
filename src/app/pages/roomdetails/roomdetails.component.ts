@@ -40,6 +40,7 @@ export class RoomdetailsComponent implements OnInit {
       (response: Resevation) => {
         console.log(response);
         addForm.reset();
+        alert("reservation");
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
