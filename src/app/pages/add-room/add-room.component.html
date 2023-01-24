@@ -1,0 +1,99 @@
+<!-- <main id="main" class="main">
+    <div class="pagetitle d-flex justify-content-between">
+        <div>
+            <h4 class="fw-bold">Add New Room</h4>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
+                    <li class="breadcrumb-item active"><a routerLink="../../">Hotels</a></li>
+                    <li class="breadcrumb-item active"><a routerLink="../">Hotel</a></li>
+                    <li class="breadcrumb-item active">Add New Room</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <section class="section">
+        <div class="row">
+          <div class="">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Room informations</h5>
+                <div class="d-flex gap-4">
+                    <form class="col-8 bg-light p-4 border-2 rounded" method="post" (submit)="createRoom()" #form="ngForm">
+                        <div class="form-group row">
+                          <div class="col-md-6">
+                            <label class="mb-2" for="roomNumber">Room Number</label>
+                            <input type="number" name="roomNumber" [(ngModel)]="room.roomNumber" class="mb-3 form-control" id="roomNumber" required #roomNumber="ngModel">
+                            <div *ngIf="roomNumber.invalid && roomNumber.touched" class="text-danger">
+                              Room number is required
+                            </div>
+                            <label class="mb-2" for="type">Type</label>
+                            <select class="mb-3 form-select"  name="roomType" [(ngModel)]="room.roomType" id="type" required #type="ngModel">
+                              <option value="">Select Room Type</option>
+                              <option value="Normal">Standard</option>
+                              <option value="Deluxe">Deluxe</option>
+                              <option value="King">King</option>
+                            </select>
+                            <div *ngIf="type.invalid && type.touched" class="text-danger">
+                              Room type is required
+                            </div>
+                            <label class="mb-2" for="numBeds">Number of Beds</label>
+                            <input type="number" class="mb-3 form-control" name="numberBeds" [(ngModel)]="room.numberBeds" id="numBeds" required #numBeds="ngModel">
+                            <div *ngIf="numBeds.invalid && numBeds.touched" class="text-danger">
+                              Number of beds is required
+                            </div>
+                            <label class="mb-2" for="numBeds">hotel</label>
+                            <input type="number" class="mb-3 form-control" name="numberBeds" [(ngModel)]="room.numberBeds" id="numBeds" required #numBeds="ngModel">
+                            <div *ngIf="numBeds.invalid && numBeds.touched" class="text-danger">
+                              Number of beds is required
+                            </div>
+                            <label class="mb-2" for="description">Description</label>
+                            <textarea class="mb-3 form-control" name="description" [(ngModel)]="room.hotel.id" id="description" required #description="ngModel"></textarea>
+                            <div *ngIf="description.invalid && description.touched" class="text-danger">
+                              Description is required
+                            </div>
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label class="mb-2" for="roomStatus">roomStatus</label>
+                            <textarea class="mb-3 form-control" name="roomStatus" [(ngModel)]="room.roomStatus" id="roomStatus" required #description="ngModel"></textarea>
+                            <div *ngIf="description.invalid && description.touched" class="text-danger">
+                              Description is required
+                            </div>
+                            <label class="mb-2" for="capacity">Capacity</label>
+                            <input type="number" class="mb-3 form-control" name="capacity" [(ngModel)]="room.capacity" id="capacity" required #capacity="ngModel">
+                            <div *ngIf="capacity.invalid && capacity.touched" class="text-danger">
+                              Capacity is required
+                            </div>
+                            <label class="mb-2" for="price">Price</label>
+                            <input type="text" class="mb-3 form-control" name="price" [(ngModel)]="room.price" id="price" required #price="ngModel">
+                            <div *ngIf="price.invalid && price.touched" class="text-danger">
+                              Price</div>
+                            </div>
+                            
+                              </div>
+                              <div class="mb-3 form-group row mt-3 mb-3">
+                                <div class="">
+                                  <button type="submit" class="mb-3 btn btn-primary w-100" [disabled]="form.invalid">Submit</button>
+                                </div>
+                              </div>
+                            </form>
+                  <div class="">
+                    <h4>Guidience</h4>
+                    <p>
+                      This is simple :
+                    </p>
+                    <ul>
+                      <li>All fields are required</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+</main> -->
+<main class="main" class="main">
+    <h1>Add Room</h1>
+    <form action=""></form>
+</main>

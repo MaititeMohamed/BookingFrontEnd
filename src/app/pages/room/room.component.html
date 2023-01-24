@@ -1,7 +1,7 @@
 <main id="main" class="main">
     <div class="d-flex  justify-content-between">
         <h3>List of rooms </h3>
-        <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addclient">
+        <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addRoom">
           Add Room
         </button>
       </div>
@@ -48,5 +48,69 @@
     
         </tbody>
       </table>
+
+
+       <!-- modal add client  -->
+  <div class="modal" id="addRoom">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Add Room</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+
+
+          <form method="post" (submit)="addRoom()">
+            <div class="form-group">
+              <label for="roomNumber">roomNumber</label>
+              <input type="text" ([ngModel])="x.roomNumber" name="roomNumber" class="form-control" id="roomNumber" placeholder="roomNumber"
+                required>
+            </div>
+            <div class="form-group">
+              <label for="price">lastpriceName</label>
+              <input type="text" ([ngModel])="x.price" name="price" class="form-control" id="price" placeholder="price"
+                required>
+            </div>
+            <div class="form-group">
+              <label for="numberBeds">numberBeds </label>
+              <input type="text" ([ngModel])="x.numberBeds" name="numberBeds" class="form-control" id="numberBeds" placeholder="numberBeds" required>
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="capacity">capacity</label>
+              <input type="text" ([ngModel])="x.capacity" name="capacity" class="form-control" id="capacity" placeholder="capacity"
+                required>
+            </div>
+            <div class="form-group mb-3">
+              <label for="roomType">roomType</label>
+              <input type="text" ([ngModel])="x.roomType" name="roomType" class="form-control" id="roomType" placeholder="roomType"
+                required>
+            </div>
+            <div class="form-group mb-3">
+              <label for="HotelId">HotelId</label>
+              <input type="text" ([ngModel])="x.hotel.id" name="id" class="form-control" id="id" placeholder="HotelId"
+                required>
+            </div>
+            <div class="form-group mb-3">
+              <label for="description">description</label>
+              <input type="description" ([ngModel])="x.description" name="description" class="form-control" id="description" placeholder="description"
+                required>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button  type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end modal client  -->
 </main>
 

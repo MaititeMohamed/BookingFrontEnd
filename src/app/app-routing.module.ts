@@ -12,6 +12,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { RoomdetailsComponent } from './pages/roomdetails/roomdetails.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
+import { AddRoomComponent } from './pages/add-room/add-room.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent },
@@ -26,7 +27,8 @@ const routes: Routes = [
   {path:"roomdetails/:id",component:RoomdetailsComponent},
   {path:"clients",component:ClientsComponent},
   {path:"managers",component:ManagersComponent},
-  {path:"rooms",component:RoomComponent}
+  {path:"rooms",component:RoomComponent},
+  {path:"addroom",component:AddRoomComponent}
   
 ];
 

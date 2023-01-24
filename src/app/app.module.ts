@@ -17,6 +17,7 @@ import { RoomComponent } from './pages/room/room.component';
 import { RoomdetailsComponent } from './pages/roomdetails/roomdetails.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { AddRoomComponent } from './pages/add-room/add-room.component';
 
 @NgModule({
 declarations:[
@@ -33,7 +34,8 @@ declarations:[
     RoomComponent,
     RoomdetailsComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddRoomComponent
 ],
 
 imports:[

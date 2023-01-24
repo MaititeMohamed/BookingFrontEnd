@@ -20,14 +20,19 @@ import { Hotel } from '../model/hotelModel';
        return this.http.get("http://localhost:8080/Booking/Admin/getHotelById/"+id)
       }
 
-      // public addHotel(hotel:Hotel):Observable<Hotel> {
-      //   return this.http.post<Hotel>("http://localhost:8080/Booking/Manager/addHotel",hotel);
-      //  }
+      public addHotel(hotel:Hotel):Observable<Hotel> {
+        return this.http.post<Hotel>("http://localhost:8080/Booking/Manager/addHotel",hotel);
+       }
   
-      //  public updateHotel(hotel: Hotel):Observable<Hotel> {
-      //   return this.http.put<Hotel>("http://localhost:8080/Booking/Admin/updateHotel",hotel);
-      // }
+       public updateHotel(hotel: Hotel):Observable<Hotel> {
+        return this.http.put<Hotel>("http://localhost:8080/Booking/Admin/updateHotel",hotel);
+      }
     
+      public updateHotelByManager(hotel: Hotel):Observable<Hotel> {
+        return this.http.put<Hotel>("http://localhost:8080/Booking/Manager/updateHotel",hotel);
+      }
+    
+      
   
        public deleteHotel(id: number): Observable<any> {
         return this.http.delete<void>("http://localhost:8080/Booking/Admin/deleteHotelById/"+id);

@@ -1,13 +1,13 @@
 
 
 <main id="main" class="main">
-  <div class="d-flex  justify-content-between">
+  <div   class="d-flex  justify-content-between">
     <h3>List of hotels </h3>
-    <!-- <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addhotel">
+     <button  *ngIf="isManage==true"  type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addhotel">
       Add hotel
-    </button> -->
+    </button> 
   </div>
-    <div class="table-responsive">
+    <div  *ngIf="isManage==false" class="table-responsive">
       <table class="table align-middle mb-0 bg-white ">
         <thead class="bg-light">
           <tr>
@@ -66,10 +66,64 @@
     </div>
 
 
+   
 
+    <div  *ngIf="isManage==true" class="table-responsive">
+      <table class="table align-middle mb-0 bg-white ">
+        <thead class="bg-light">
+          <tr>
+            <th>Name</th>
+            <th>Country</th>
+            <th>City</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let hotel of hotels" >
+            <td>
+              <div class="d-flex align-items-center">
+                <img
+                    src="https://thumbs.dreamstime.com/b/hotel-10732347.jpg"
+                    alt=""
+                    style="width: 45px; height: 45px"
+                    class="rounded "
+                    />
+                <div class="ms-3">
+                  <p class="fw-bold mb-1">{{hotel.hotelName}}</p>
+                </div>
+              </div>
+            </td>
+            <td>
+              <p class="fw-normal mb-1">{{hotel.country}}</p>
+            </td>
+            <td>
+              <p class="fw-normal mb-1">{{hotel.city}}</p>
+            </td>
+            <td *ngIf="hotel.status === 'ACTIVE'">
+              <span class="badge rounded-pill bg-success">ACTIVE</span>
+            </td>
+            <td *ngIf="hotel.status === 'DEACTIVATE'">
+              <span  class="badge rounded-pill bg-danger">DEACTIVATE</span>
+            </td>
+            <td>
+              <a class="btn btn-link btn-sm btn-rounded">
+                <i (click)="onOpenModal(hotel,'edit')" class="fa fa-edit" aria-hidden="true"></i>
+              </a>
+              <a class="btn btn-link btn-sm btn-rounded">
+                <i (click)="onOpenModal(hotel,'delete')" data-placement="top" data-original-title="Delete"
+                   class="fa fa-trash" aria-hidden="true"></i>
+              </a>
+            </td>
+          
+          </tr>
+         
+        </tbody>
+      </table>
+    </div>
 
     <!-- modal add client  -->
-  <!-- <div class="modal" id="addhotel">
+  <div class="modal" id="addhotel">
     <div class="modal-dialog">
       <div class="modal-content">
 
@@ -81,8 +135,6 @@
 
       
         <div class="modal-body">
-
-
           <form #addForm="ngForm" (ngSubmit)="addHotel(addForm)">
             <div class="form-group">
               <label for="hotelName">hotelName</label>
@@ -115,7 +167,7 @@
         </div>
       </div>
     </div>
-  </div> -->
+  </div> 
   <!-- end modal client  -->
    <!-- Delete Modal -->
    <div class="modal fade" id="deleteHotel" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel"
@@ -163,4 +215,48 @@
     </div>
   </div>
   <!-- Active Modal -->
+  <!-- modal add hotel  -->
+  <div class="modal" id="updatehotel">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">update hotel</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+          <form #editForm="ngForm">
+            <div class="form-group">
+              <label for="hotelName">hotelName</label>
+              <input type="text" ngModel="{{editHotel?.hotelName}}" name="hotelName" class="form-control" id="hotelName" placeholder="hotelName"
+                required>
+            </div>
+            <div class="form-group">
+              <label for="address">address</label>
+              <input type="text" ngModel ="{{editHotel?.address}}" name="address" class="form-control" id="address" placeholder="address"
+                required>
+            </div>
+          
+            <div class="form-group">
+              <label for="country">country</label>
+              <input type="text" ngModel ="{{editHotel?.country}}" name="country" class="form-control" id="country" placeholder="country"
+                required>
+            </div>
+          
+            <div class="form-group">
+              <label for="city">city</label>
+              <input type="text" ngModel ="{{editHotel?.city}}" name="city" class="form-control" id="city" placeholder="city"
+                required>
+            </div>
+          
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" (click)="updateHotelByManager(editForm.value)" class="btn btn-primary">Save changes</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div> 
+  <!-- end modal hotel  -->
     </main>

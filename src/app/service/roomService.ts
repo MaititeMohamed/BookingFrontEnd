@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Resevation } from "../model/reservation";
+import { Room } from "../model/roomModel";
 
 
 
@@ -32,6 +33,16 @@ export class RoomService{
      }
 
 
-     
+     public addRoom(room:Room):Observable<Room> {
+      return this.http.post<Room>("http://localhost:8080/Booking/Manager/addRoom",room);
+     }
+
+     public updateRoom(room: Room):Observable<Room> {
+      return this.http.put<Room>("http://localhost:8080/Booking/Admin/updateRoom",room);
+    }
+
+    public deleteRoom(id: number): Observable<any> {
+      return this.http.delete<void>("http://localhost:8080/Booking/Admin/deleteRoomById/"+id);
+    }
     }
 
