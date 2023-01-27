@@ -24,3 +24,5 @@ FROM nginx:alpine
  
 COPY --from=build-stage /app/dist/booking-front-end /usr/share/nginx/html
 
+
+
