@@ -16,11 +16,11 @@ import { Manager } from "../model/manager";
 
 
       public getAllMangers(): Observable<any> {
-        return this.http.get("http://localhost:8080/Booking/Admin/getAllManger");
+        return this.http.get("http://localhost:8081/Booking/Admin/getAllManger");
       }
 
       public  addManager(manager:Manager):Observable<Manager> {
-        return this.http.post<Manager>("http://localhost:8080/Booking/Admin/addManger",manager);
+        return this.http.post<Manager>("http://localhost:8081/Booking/Admin/addManger",manager);
        }
   
        public updateManager(manager: Manager):Observable<Manager> {
@@ -29,7 +29,7 @@ import { Manager } from "../model/manager";
     
   
        public deleteManager(id: number): Observable<any> {
-        return this.http.delete<void>("http://localhost:8080/Booking/Admin/deleteManagerById/"+id);
+        return this.http.delete<void>("http://localhost:8081/Booking/Admin/deleteManagerById/"+id);
       }
 
   }

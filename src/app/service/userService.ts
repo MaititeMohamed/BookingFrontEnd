@@ -15,10 +15,10 @@ import { User } from "../model/userModel";
 
 
     public login(user:User):Observable<User>{
-    return this.http.post<User>("http://localhost:8080/authenticate/login",user);
+    return this.http.post<User>("http://localhost:8081/authenticate/login",user);
     }
 
     public getUserByEmail(email:string):Observable<User>{
-      return this.http.get<User>("http://localhost:8080/Booking/User/getUserByEmail/"+email);
+      return this.http.get<User>("http://localhost:8081/Booking/User/getUserByEmail/"+email);
     }
   }
