@@ -19,6 +19,6 @@ import { User } from "../model/userModel";
     }
 
     public getUserByEmail(email:string):Observable<User>{
-      return this.http.get<User>("http://localhost:8081/Booking/User/getUserByEmail/"+email);
+      return this.http.get<User>("http://localhost:8081/api/users/getUserByEmail/"+email);
     }
   }
